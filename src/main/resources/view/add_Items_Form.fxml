@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.AddItemsFormController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AddItemsFormController">
    <children>
       <Label layoutX="203.0" layoutY="22.0" text="Add Items Form">
          <font>
@@ -16,15 +15,15 @@
          </font>
       </Label>
       <Label layoutX="91.0" layoutY="81.0" text="Item Id" />
-      <TextField layoutX="155.0" layoutY="111.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="txtItemName" layoutX="155.0" layoutY="111.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="91.0" layoutY="115.0" text="Item Name" />
-      <TextField layoutX="155.0" layoutY="149.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="txtItemQuantity" layoutX="155.0" layoutY="149.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="91.0" layoutY="153.0" text="Quantity" />
       <Label layoutX="90.0" layoutY="187.0" text="Description" />
-      <TextField layoutX="155.0" layoutY="266.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="txtPrice" layoutX="155.0" layoutY="266.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="91.0" layoutY="270.0" text="Price" />
-      <TextArea layoutX="155.0" layoutY="187.0" prefHeight="68.0" prefWidth="200.0" />
-      <Label layoutX="155.0" layoutY="81.0" text="Item Id" />
-      <Button layoutX="267.0" layoutY="329.0" mnemonicParsing="false" text="Add Item" />
+      <TextArea fx:id="txtItemDescription" layoutX="155.0" layoutY="187.0" prefHeight="68.0" prefWidth="200.0" />
+      <Label fx:id="lblItemId" layoutX="155.0" layoutY="81.0" text="Item Id" />
+      <Button layoutX="267.0" layoutY="329.0" mnemonicParsing="false" onAction="#addItemToListOnAction" text="Add Item" />
    </children>
 </AnchorPane>

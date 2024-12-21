@@ -1,4 +1,4 @@
-package org.example.Controllers;
+package org.example.controllers;
 
 public class DeleteItemsFormController {
 }
