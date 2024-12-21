@@ -11,7 +11,6 @@ import org.example.model.Item;
 
 public class ViewItemsFormController {
 
-
     public TableView tblViewItems;
     public TableColumn colItemID;
     public TableColumn colItemName;
@@ -24,7 +23,6 @@ public class ViewItemsFormController {
     }
 
     private void loadTable() {
-
         ObservableList<Item> itemsObservableList = FXCollections.observableArrayList();
         colItemID.setCellValueFactory(new PropertyValueFactory<>("item_id"));
         colItemName.setCellValueFactory(new PropertyValueFactory<>("item_name"));
@@ -36,6 +34,5 @@ public class ViewItemsFormController {
         });
 
         tblViewItems.setItems(itemsObservableList);
-
     }
 }
