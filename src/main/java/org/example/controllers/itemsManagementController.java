@@ -15,13 +15,6 @@ public class itemsManagementController {
         stage.show();
     }
 
-    public void viewItemsOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/view_Items_Form.fxml"))));
-        stage.setTitle("View Item Form");
-        stage.show();
-    }
-
     public void deleteItemsOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delete_Items_Form.fxml"))));

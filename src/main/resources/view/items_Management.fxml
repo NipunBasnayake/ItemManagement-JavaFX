@@ -10,15 +10,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.itemsManagementController">
    <children>
-      <Button layoutX="61.0" layoutY="144.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: #27ae60;" text="Add Items" textFill="WHITE">
+      <Button layoutX="61.0" layoutY="177.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="39.0" prefWidth="198.0" style="-fx-background-color: #27ae60;" text="Add Items" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="61.0" layoutY="206.0" mnemonicParsing="false" onAction="#viewItemsOnAction" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: #2980b9;" text="View Items" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="61.0" layoutY="268.0" mnemonicParsing="false" onAction="#deleteItemsOnAction" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: #c0392b;" text="Delete Items" textFill="WHITE">
+      <Button layoutX="61.0" layoutY="235.0" mnemonicParsing="false" onAction="#deleteItemsOnAction" prefHeight="39.0" prefWidth="198.0" style="-fx-background-color: #c0392b;" text="View &amp; Delete Items" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
