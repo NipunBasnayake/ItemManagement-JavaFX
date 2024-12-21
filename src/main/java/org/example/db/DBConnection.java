@@ -6,10 +6,10 @@ import java.util.List;
 
 public class DBConnection {
     private static DBConnection instance;
-    private List<Item> itemList;
+    private List<Item> itemArrayList;
 
     private DBConnection() {
-        itemList = new ArrayList<>();
+        itemArrayList = new ArrayList<>();
     }
 
     public static DBConnection getInstance() {
@@ -17,6 +17,6 @@ public class DBConnection {
     }
 
     public List getConnection() {
-        return itemList;
+        return itemArrayList;
     }
 }

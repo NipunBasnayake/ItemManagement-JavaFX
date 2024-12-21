@@ -7,13 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.ViewItemsFormController">
    <children>
-      <TableView layoutX="29.0" layoutY="81.0" prefHeight="236.0" prefWidth="543.0">
+      <TableView fx:id="tblViewItems" layoutX="29.0" layoutY="81.0" prefHeight="236.0" prefWidth="543.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colItemID" prefWidth="68.0" text="Item Id" />
+          <TableColumn fx:id="colItemName" prefWidth="121.0" text="Item Name" />
+            <TableColumn fx:id="colItemQty" prefWidth="86.0" text="Quantity" />
+            <TableColumn fx:id="colItemDesc" prefWidth="163.0" text="Description" />
+            <TableColumn fx:id="colItemPrice" prefWidth="104.0" text="Price" />
         </columns>
       </TableView>
       <Label layoutX="198.0" layoutY="28.0" text="View Items Form">
@@ -21,6 +23,6 @@
             <Font name="Poppins Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="263.0" layoutY="341.0" mnemonicParsing="false" text="Load Table" />
+      <Button layoutX="263.0" layoutY="341.0" mnemonicParsing="false" onAction="#btnLoadTableOnAction" text="Load Table" />
    </children>
 </AnchorPane>

@@ -34,8 +34,6 @@ public class AddItemsFormController implements Initializable {
         String item_description = txtItemDescription.getText();
         Double item_price =Double.parseDouble(txtPrice.getText());
 
-        lblItemId.setText(item_id);
-
         Item newItem = new Item(item_id, item_name, item_qty, item_description, item_price);
         boolean isAdded = DBConnection.getInstance().getConnection().add(newItem);
 
