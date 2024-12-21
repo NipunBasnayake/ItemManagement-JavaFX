@@ -3,11 +3,16 @@ package org.example.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.example.db.DBConnection;
 import org.example.model.Item;
+
+import java.util.Optional;
 
 public class DeleteItemsFormController {
 
@@ -40,11 +45,31 @@ public class DeleteItemsFormController {
         Item selectedItem = (Item) tblViewItems.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
-            DBConnection.getInstance().getConnection().remove(selectedItem);
-            tblViewItems.getItems().remove(selectedItem);
-        }else{
-            System.out.println("No selected item");
-            loadTable();
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Delete Confirmation");
+            confirmationAlert.setHeaderText("Are you sure you want to delete?");
+            confirmationAlert.setContentText(
+                    "Item Id: "+selectedItem.getItem_id() + "\nItem: " + selectedItem.getItem_name() + "\nQuantity: " + selectedItem.getItem_qty() + "\nDescription: " + selectedItem.getItem_description() + "\nPrice: " + selectedItem.getItem_price()
+            );
+
+            Optional<ButtonType> result = confirmationAlert.showAndWait();
+
+            if (result.isPresent() && result.get().equals(ButtonType.OK)) {
+                DBConnection.getInstance().getConnection().remove(selectedItem);
+                tblViewItems.getItems().remove(selectedItem);
+
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Item Deleted");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("The item has been successfully deleted.");
+                successAlert.showAndWait();
+            }
+        } else {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("No Selection");
+            errorAlert.setHeaderText("No Item Selected");
+            errorAlert.setContentText("Please select an item to delete.");
+            errorAlert.showAndWait();
         }
     }
 }

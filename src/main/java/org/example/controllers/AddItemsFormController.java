@@ -2,6 +2,7 @@ package org.example.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,7 +25,11 @@ public class AddItemsFormController implements Initializable {
     public void addItemToListOnAction(ActionEvent actionEvent) {
 
         if (txtItemName.getText().isEmpty() || txtItemQuantity.getText().isEmpty() || txtPrice.getText().isEmpty() || txtItemDescription.getText().isEmpty()){
-            System.out.println("Empty Fields");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Empty Fields");
+            errorAlert.setHeaderText("Empty Fields");
+            errorAlert.setContentText("Please fill all the required fields");
+            errorAlert.showAndWait();
             return;
         }
 
@@ -38,12 +43,25 @@ public class AddItemsFormController implements Initializable {
         boolean isAdded = DBConnection.getInstance().getConnection().add(newItem);
 
         if (isAdded) {
-            System.out.println("Item added successfully." + "Total items: " + DBConnection.getInstance().getConnection().size());
+            Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+            errorAlert.setTitle("item Added");
+            errorAlert.setHeaderText("Item added successfully.");
+            errorAlert.showAndWait();
+
+            txtItemDescription.setText("");
+            txtPrice.setText("");
+            txtItemQuantity.setText("");
+            txtItemName.setText("");
+
+            updateNextItemId();
         } else {
-            System.out.println("Failed to add item.");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Item Cant Added");
+            errorAlert.setHeaderText("Failed to add item.");
+            errorAlert.showAndWait();
         }
 
-        updateNextItemId();
+
     }
 
     @Override
