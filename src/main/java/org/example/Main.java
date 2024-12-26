@@ -12,7 +12,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/items_Management.fxml"))));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/items_Management.fxml")));
+        scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setTitle("Item Management");
         primaryStage.setResizable(false);
