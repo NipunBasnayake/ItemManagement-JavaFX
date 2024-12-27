@@ -16,6 +16,6 @@ public class Starter extends Application {
         stage.show();
         stage.setTitle("Item Management");
         stage.setResizable(false);
-        stage.setX(20);
+
     }
 }
