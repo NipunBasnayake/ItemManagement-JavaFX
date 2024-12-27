@@ -1,4 +1,4 @@
-package org.example.controllers;
+package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -6,8 +6,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.example.db.DBConnection;
-import org.example.model.Item;
+import db.DBConnection;
+import model.Item;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,14 +33,11 @@ public class AddItemsFormController implements Initializable {
             return;
         }
 
-        String item_id = String.valueOf(itemIdCount++);
-        String item_name = txtItemName.getText();
-        int item_qty = Integer.parseInt(txtItemQuantity.getText());
-        String item_description = txtItemDescription.getText();
-        Double item_price =Double.parseDouble(txtPrice.getText());
-
-        Item newItem = new Item(item_id, item_name, item_qty, item_description, item_price);
-        boolean isAdded = DBConnection.getInstance().getConnection().add(newItem);
+        boolean isAdded = DBConnection.getInstance().getConnection().add(new Item(String.valueOf(itemIdCount++),
+                                                                            txtItemName.getText(),
+                                                                            Integer.parseInt(txtItemQuantity.getText()),
+                                                                            txtItemDescription.getText(),
+                                                                            Double.parseDouble(txtPrice.getText())));
 
         if (isAdded) {
             Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -48,11 +45,7 @@ public class AddItemsFormController implements Initializable {
             errorAlert.setHeaderText("Item added successfully.");
             errorAlert.showAndWait();
 
-            txtItemDescription.setText("");
-            txtPrice.setText("");
-            txtItemQuantity.setText("");
-            txtItemName.setText("");
-
+            clearFields();
             updateNextItemId();
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -60,8 +53,13 @@ public class AddItemsFormController implements Initializable {
             errorAlert.setHeaderText("Failed to add item.");
             errorAlert.showAndWait();
         }
+    }
 
-
+    public void clearFields() {
+        txtItemDescription.clear();
+        txtPrice.clear();
+        txtItemQuantity.clear();
+        txtItemName.clear();
     }
 
     @Override

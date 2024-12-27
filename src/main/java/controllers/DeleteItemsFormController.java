@@ -1,4 +1,4 @@
-package org.example.controllers;
+package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,8 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.example.db.DBConnection;
-import org.example.model.Item;
+import db.DBConnection;
+import model.Item;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package org.example.db;
+package db;
 
-import org.example.model.Item;
+import model.Item;
 import java.util.ArrayList;
 import java.util.List;
 

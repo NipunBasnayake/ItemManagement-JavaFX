@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.itemsManagementController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.itemsManagementController">
    <children>
       <Button layoutX="61.0" layoutY="177.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="39.0" prefWidth="198.0" style="-fx-background-color: #27ae60;" text="Add Items" textFill="WHITE">
          <font>
